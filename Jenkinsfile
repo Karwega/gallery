@@ -9,17 +9,22 @@ pipeline {
     }
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing....'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+            }
+        }
+        stage('Slack notification') {
+            steps {
+                slackSend channel: '#karwega_ip1', message: "Successfully deployed build id: {BUILD_ID}"
             }
         }
     }
