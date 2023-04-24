@@ -14,7 +14,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing....'
+                sh 'npm test'
+            }
+            post{
+                failure{
+                    mail bcc: '', body: 'We hate to be the bearer of bad news but the build on your app has failed.', cc: '', from: '', replyTo: '', subject: 'Build Status: Failure', to: 'stephanie.kibet@student.moringaschool.com, stephkiby@gmail.com, '
+                    }
             }
         }
         stage('Deploy') {
@@ -24,7 +29,7 @@ pipeline {
         }
         stage('Slack notification') {
             steps {
-                slackSend channel: '#karwega_ip1', message: "Successfully deployed build id: {BUILD_ID}"
+                slackSend channel: '#karwega_ip1', message: "Successfully deployed build id: ${BUILD_ID}"
             }
         }
     }
