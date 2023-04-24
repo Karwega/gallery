@@ -8,4 +8,4 @@
     <li>A heroku website with the relevant milestones can be found.</li>
     </ul>
 </p>
-<font size="4"><i>This is is clonned and forked from <a href="https://github.com/jonnygovish/gallery">jonnygovish/gallery</a></i></font>
+<font size="4"><i>This repository is clonned and forked from <a href="https://github.com/jonnygovish/gallery">jonnygovish/gallery</a></i></font>
